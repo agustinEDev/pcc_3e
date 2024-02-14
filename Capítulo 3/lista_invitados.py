@@ -34,6 +34,7 @@ del invitados[3]
 del invitados[2]
 del invitados[0]
 
+print(f"Quedarían solo {len(invitados)} invitados para la cena.")
 invitado_1 = invitados.pop(1)
 invitado_2 = invitados.pop(0)
 
