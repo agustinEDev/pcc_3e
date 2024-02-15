@@ -1,4 +1,3 @@
-#TrinxDev 09/02/2024
 #Este programa sirve para practicar el uso de variables
 
 var="\nEste es el primer mensaje simple."
