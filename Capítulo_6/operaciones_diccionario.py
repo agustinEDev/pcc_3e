@@ -45,10 +45,12 @@ for value in favorite_languages.values():
 print("------------ Sin el método values() --------------------------")
 for value in favorite_languages:
     print(favorite_languages[value])
+
 #Recorremos el diccionario pero imprimimos sin repeticiones
 print("------------ Sin repeticiones con el método values() ---------")
 for value in set(favorite_languages.values()):
     print(value)
+    
 #Conjunto es un tipo de datos que al imprimir no saca los duplicados
 #No guarda los datos en un orden específico
 print("------------ Creamos un conjunto y lo imprimimos -------------")
