@@ -1,3 +1,5 @@
+import os
+
 #Describimos la función para hacer la camiseta
 def hacer_camiseta(talla, mensaje=''):
     if mensaje != '':
@@ -28,7 +30,7 @@ def continuar():
 #---------- Inicio del programa ------------------------------------------------
     
 flag = True
-
+os.system('clear')
 print("Bienvenido a la fábrica de camisetas!")
 while flag:
     frase = input("Introduzca la frase a imprimir en la camiseta: ")
