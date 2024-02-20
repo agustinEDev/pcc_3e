@@ -1,4 +1,5 @@
 import Modulos.switch_flag as switch_flag
+
 def greet_user(usuario):
     print(f"Hola {usuario.title()}")
 
