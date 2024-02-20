@@ -76,7 +76,7 @@ def menu_principal():
 
 # -------------------- Inicio del programa ------------------------------------
 os.system('clear')
-print("Bienvenido al almacen de discos.")
+print("Bienvenido al almacén de discos.")
 flag = True
 discos = []
 option = 0
