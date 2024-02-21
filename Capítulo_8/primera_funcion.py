@@ -1,4 +1,4 @@
-import switch_flag
+from switch_flag import set_flag_es
 
 def greet_user(usuario):
     print(f"Hola {usuario.title()}")
@@ -9,4 +9,4 @@ while flag:
     name = input("Introduce tu nombre: ")
     #Llamamos a la función creada anteriormente
     greet_user(name)
-    flag = switch_flag.set_flag_es()
+    flag = set_flag_es()

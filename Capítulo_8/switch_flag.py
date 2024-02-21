@@ -9,7 +9,7 @@ def set_flag_en():
         return True
     else:
         return False
-    
+
 #Esta es la función que pregunta si continuamos o no con la aplicación
 def set_flag_es():
     repeat = input("Quieres continuar? (si/no): ")
