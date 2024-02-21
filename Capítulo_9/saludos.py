@@ -1,10 +1,10 @@
 import sys
 sys.path.append("../clases/")
-import clases.usuario as usuario
+from clases.usuario import Usuario
 
-user1 = usuario.Usuario("Agustín", "Estévez", "Domínguez", 43)
-user2 = usuario.Usuario("Emma", "Domínguez", "Pedrosa", 81)
-user3 = usuario.Usuario("Carmen", "Estévez", "Domínguez", 41)
+user1 = Usuario("Agustín", "Estévez", "Domínguez", 43)
+user2 = Usuario("Emma", "Domínguez", "Pedrosa", 81)
+user3 = Usuario("Carmen", "Estévez", "Domínguez", 41)
 
 user1.incrementar_intentos_inicio()
 user1.incrementar_intentos_inicio()
