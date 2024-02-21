@@ -26,3 +26,7 @@ class Car:
         #Incrementa el kilometraje con la cantidad recibida
         if mileages >= 0:
             self.odometer_reading += mileages
+
+    def fill_gas_tank (self):
+        #Llenamos el depósito de gasolina
+        print("The gas tank has been filled.")

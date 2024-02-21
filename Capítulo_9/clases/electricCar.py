@@ -12,3 +12,7 @@ class ElectricCar (Car):
     def describe_batery (self):
         #Describe el tamaño de la batería
         print(f"This car has a {self.battery_size}-kWh battery.")
+
+    def fill_gas_tank(self):
+        #El coche electrico no tiene depósito
+        print("The electric cars has no gas tank.")
