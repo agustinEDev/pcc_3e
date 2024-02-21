@@ -1,12 +1,11 @@
 import sys
 sys.path.append('../clases/')
-import clases.restaurante as restaurante
+from clases.restaurante import Restaurante
 
 
-
-furancho = restaurante.Restaurante("Las Torres", "Mediterránea")
-furancho2 = restaurante.Restaurante("La Ostra Azul", "Fusión")
-furancho3 = restaurante.Restaurante("El Bulli", "Brasa")
+furancho = Restaurante("Las Torres", "Mediterránea")
+furancho2 = Restaurante("La Ostra Azul", "Fusión")
+furancho3 = Restaurante("El Bulli", "Brasa")
 
 furancho.establecer_numero_servido(35)
 furancho2.incrementar_numero_servido(5)
