@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../clases/')
-from clases.car import Car
-from clases.electricCar import ElectricCar
+from modulos.car import Car
+from modulos.electricCar import ElectricCar
 
 print("Térmico ------------ ")
 my_car = Car('audi', 'a4', 2009)

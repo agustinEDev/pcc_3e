@@ -1,5 +1,5 @@
-from clases.car import Car 
-from clases.battery import Battery
+from modulos.car import Car 
+from modulos.battery import Battery
 
 class ElectricCar (Car):
 

@@ -1,7 +1,7 @@
 import sys
 sys.path.append("../clases/")
-from clases.usuario import Usuario
-from clases.admin import Admin
+from modulos.usuario import Usuario
+from modulos.admin import Admin
 
 user1 = Usuario("Agustín", "Estévez", "Domínguez", 43)
 user2 = Usuario("Emma", "Domínguez", "Pedrosa", 81)

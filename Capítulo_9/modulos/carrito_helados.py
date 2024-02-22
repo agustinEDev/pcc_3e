@@ -1,4 +1,4 @@
-from clases.restaurante import Restaurante
+from modulos.restaurante import Restaurante
 
 class Carrito_helados(Restaurante):
     #Creamos el método init para instanciar el carrito

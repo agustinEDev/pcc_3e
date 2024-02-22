@@ -1,5 +1,5 @@
-from clases.usuario import Usuario
-from clases.privilegios import Privilegios
+from modulos.usuario import Usuario
+from modulos.privilegios import Privilegios
 
 class Admin(Usuario):
 

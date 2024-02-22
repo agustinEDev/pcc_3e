@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../clases/')
-from clases.restaurante import Restaurante
-from clases.carrito_helados import Carrito_helados
+from modulos.restaurante import Restaurante
+from modulos.carrito_helados import Carrito_helados
 
 
 furancho = Restaurante("Las Torres", "Mediterránea")
