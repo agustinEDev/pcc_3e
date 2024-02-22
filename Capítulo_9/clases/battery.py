@@ -20,3 +20,7 @@ class Battery:
         
         if range != 0:
             print(f"This car can go about {range} miles on a full charge.")
+
+    def upgrade_battery (self):
+        if self.battery_size < 65:
+            self.battery_size = 65

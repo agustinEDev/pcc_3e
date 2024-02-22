@@ -1,5 +1,3 @@
-import sys
-sys.path.append("../clases/")
 from clases.car import Car 
 from clases.battery import Battery
 
