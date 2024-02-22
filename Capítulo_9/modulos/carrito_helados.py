@@ -7,6 +7,7 @@ class Carrito_helados(Restaurante):
         self.sabores = ['fresa', 'limon', 'plátano', 'naranja', 'chocolate']
 
     def mostrar_sabores (self):
+        #Método que muestra los sabores que tiene disponible la instancia
         print("Los sabores que tenemos son: ")
         for sabor in self.sabores:
             print(f" - {sabor}")

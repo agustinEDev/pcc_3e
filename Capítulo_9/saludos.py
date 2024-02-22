@@ -1,5 +1,6 @@
 import sys
 sys.path.append("../clases/")
+
 from modulos.usuario import Usuario
 from modulos.admin import Admin
 

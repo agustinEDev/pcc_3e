@@ -1,6 +1,7 @@
 class Car:
 
     def __init__(self, make, model, year):
+        #Metodo init que crea una instancia de Car
         self.make = make
         self.model = model
         self.year = year

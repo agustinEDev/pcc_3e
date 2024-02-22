@@ -1,5 +1,5 @@
-#This is the function which asks if the app continues or not
 def set_flag_en():
+    #This is the function which asks if the app continues or not
     repeat = input("Do you want to continue? yes/no: ")
     while repeat.lower() not in ('yes','no'):
         print("It is not a valid answer.")
@@ -10,8 +10,8 @@ def set_flag_en():
     else:
         return False
 
-#Esta es la función que pregunta si continuamos o no con la aplicación
 def set_flag_es():
+    #Esta es la función que pregunta si continuamos o no con la aplicación
     repeat = input("Quieres continuar? (si/no): ")
     while repeat.lower() not in ('si','no'):
         print("No es una respuesta válida.")
