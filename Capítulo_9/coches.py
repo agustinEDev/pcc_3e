@@ -15,5 +15,7 @@ my_car.fill_gas_tank()
 print("Electrico ----------- ")
 my_car2 = ElectricCar("Nissan", "Leaf", 2024)
 print(my_car2.get_descriptive_name())
-my_car2.describe_batery()
+my_car2.battery.battery_size = 65
+my_car2.battery.describe_battery()
+my_car2.battery.get_range()
 my_car2.fill_gas_tank()
