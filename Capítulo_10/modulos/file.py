@@ -13,6 +13,7 @@ class File:
             print()
 
     def inicializar (self, filename):
+        #Inicializa los valores de una instancia de File
         self.filename = f"{filename}.txt"
         self.path = Path(f'../files/{self.filename}')
         self.contenido = self.path.read_text()
@@ -38,14 +39,16 @@ class File:
 
 
     def sustituir_cadena (self, cadena, nueva_cadena = ''):
-        #Método para borrar una cadena del fichero
+        #Método para sustituir una cadena del fichero
         if self.path.exists():
             if cadena in self.contenido:
                 if cadena == self.contenido and nueva_cadena == '':
+                    #Borra el contenido entero de un fichero
                     self.contenido = self.contenido.replace(
                         f'{cadena}', nueva_cadena
                         )
                 else:
+                    #Sustituye una palabra o frase por una cadena dada
                     self.contenido = self.contenido.replace(
                         f'{cadena} ', nueva_cadena)
                     self.contenido = self.contenido.replace(
@@ -56,9 +59,6 @@ class File:
             else:
                 print(f"La cadena {cadena} no existe en el fichero.")
                 input('Pulse enter...')
-        else:
-            print(f"El fichero {self.filename} no existe.")
-            input('Pulse enter...')
 
 
     def eliminar_fichero (self):

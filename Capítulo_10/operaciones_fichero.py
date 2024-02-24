@@ -62,6 +62,7 @@ def menu_borrado_fichero():
         print("Opción incorrecta.")
         input("Pulsa enter... ")
     if opcion == 1:
+        #Modificación de un fichero existente
         os.system('clear')
         file = input('Introduce el nombre del fichero que quieres modificar: ')
         fichero = File(file.lower())
@@ -70,12 +71,14 @@ def menu_borrado_fichero():
             cadena_new = input('Introduce la frase por la que quieres cambiarla: ')
             fichero.sustituir_cadena(cadena, cadena_new)
     elif opcion == 2:
+        #Borra el contenido de un fichero existente
         os.system('clear')
         file = input('Introduce el nombre del fichero que quieres borrar: ')
         fichero = File(file.lower())
         if fichero.existe():
             fichero.sustituir_cadena(fichero.contenido)        
     elif opcion == 3:
+        #Elimina un fichero existente
         os.system('clear')
         file = input('Introduce el nombre del fichero que quieres eliminar: ')
         fichero = File(file.lower())
