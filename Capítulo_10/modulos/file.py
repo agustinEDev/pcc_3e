@@ -12,6 +12,11 @@ class File:
         except FileNotFoundError:
             print()
 
+    def inicializar (self, filename):
+        self.filename = f"{filename}.txt"
+        self.path = Path(f'../files/{self.filename}')
+        self.contenido = self.path.read_text()
+
 
     def escribir_fichero (self, cadena):
         #Método para escribir en el fichero
@@ -58,9 +63,27 @@ class File:
 
     def eliminar_fichero (self):
         #Método para eliminar un fichero del directorio
-        if self.path.exists():
             os.system(f'rm {self.path}')
             input("Fichero borrado")
-        else:
+
+    def existe(self):
+        #Método para comprobar la existencia del fichero
+        while self.path.exists() != True:
             print(f"El fichero {self.filename} no existe.")
-            input("Pulse enter... ")
+            try:
+                opcion = int(
+                    input(
+                        "Pulse 1 para introducir otro fichero o 2 para salir: "
+                        )
+                        )
+            except ValueError:
+                print("No es un valor válido.")
+                continue
+            if opcion == 1:
+                filename = input("Fichero: ")
+                self.inicializar(filename)
+                continue
+            elif opcion == 2:
+                return False
+            
+        return self.path.exists()
