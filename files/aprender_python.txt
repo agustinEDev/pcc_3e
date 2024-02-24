@@ -1,0 +1,4 @@
+En Python se puede abrir archivos para leer su contenido
+En Python se puede crear objetos que representen la vida real
+En Python se puede conectar a una base de datos para extraer datos
+En Python podemos utilizar la función randint y choice 
