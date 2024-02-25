@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import json
 
 class File:
     #Clase que intenta modelar un fichero y recibe el nombre del fichero
@@ -22,9 +23,21 @@ class File:
     def escribir_fichero (self, cadena):
         #Método para escribir en el fichero
         if self.path.exists():
-            self.contenido += f'\n{cadena}'
-            self.path.write_text(self.contenido)
+            fichero = self.path.open('a')
+            fichero.write('\n' + cadena)
+            fichero.close()
         else:
+            self.path.write_text(cadena)
+
+    def escribir_json (self, cadena):
+        #Método para escribir en el fichero si es json
+        if self.path.exists():
+            cadena = json.dumps(cadena)
+            fichero = self.path.open('a',)
+            fichero.write('\n' + cadena)
+            fichero.close()
+        else:
+            cadena = json.dumps(cadena)
             self.path.write_text(cadena)
 
 
