@@ -47,7 +47,10 @@ def menu_escritura():
             'Introduce el nombre del fichero en el que deseas escribir: ')
     cadena = input('Introduce el texto a escribir en el fichero: ')
     fichero = File(file.lower())
-    fichero.escribir_fichero(cadena)
+    if '.json' in fichero.filename:
+        fichero.escribir_json(cadena)
+    else:
+        fichero.escribir_fichero(cadena)
 
 def menu_borrado_fichero():
     #Función para mostrar el menú de borrado y borrar el fichero
@@ -90,7 +93,7 @@ def menu_listar():
     os.system('clear')
     p = pathlib.Path('/Users/agustined/Desktop/python_work/files/')
     print("------------- Ficheros en el directorio -------------------\n")
-    for file in p.glob('*.txt'):
+    for file in p.glob('*.*'):
         file = f"{file}"
         print(file.removeprefix('/Users/agustined/Desktop/python_work/files/'))
     input("\nPulse enter para salir...")
