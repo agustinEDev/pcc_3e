@@ -4,17 +4,17 @@ import os
 class File:
     #Clase que intenta modelar un fichero y recibe el nombre del fichero
     def __init__(self, filename):
-        self.filename = f"{filename}.txt"
+        self.filename = filename
         self.path = Path(f'../files/{self.filename}')
         try:
             #Tratamos el error por si no encuentra el fichero que no rompa
             self.contenido = self.path.read_text()
         except FileNotFoundError:
-            print()
+            pass
 
     def inicializar (self, filename):
         #Inicializa los valores de una instancia de File
-        self.filename = f"{filename}.txt"
+        self.filename = filename
         self.path = Path(f'../files/{self.filename}')
         self.contenido = self.path.read_text()
 
