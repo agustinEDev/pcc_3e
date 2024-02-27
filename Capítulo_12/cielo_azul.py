@@ -8,7 +8,7 @@ class VentanaAzul:
         self.clock = pygame.time.Clock()
         self.pantalla = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Ventana Azul")
-        self.bg_color = (50, 0, 200)
+        self.bg_color = (0, 0, 230)
         
     def run_ventana (self):
         while True:
