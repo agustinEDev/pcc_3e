@@ -7,7 +7,7 @@ class VentanaAzul:
     def __init__ (self):
         pygame.init()
         self.clock = pygame.time.Clock()
-        self.pantalla = pygame.display.set_mode((1200, 800))
+        self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Ventana Azul")
         self.bg_color = (230, 60, 60)
         self.comecocos = Comecocos(self)
@@ -18,7 +18,7 @@ class VentanaAzul:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            self.pantalla.fill(self.bg_color)
+            self.screen.fill(self.bg_color)
             self.comecocos.blitme()
             pygame.display.flip()
             self.clock.tick(60)
