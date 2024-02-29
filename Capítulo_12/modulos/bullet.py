@@ -29,9 +29,3 @@ class Bullet(Sprite):
     def draw_bullet (self):
         #Dibuja la bala en pantalla
         pygame.draw.rect(self.screen, self.color, self.rect)
-
-    def remove_bullet (self):
-        #Elimina la bala de la pantalla
-        self.bullets.remove(bullet)
-        self.bullets.remove(bullet)
-        #print(len(self.bullets))
