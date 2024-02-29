@@ -11,7 +11,7 @@ class Gargola:
         self.rect = self.image.get_rect()
         self.speed = 1.5
         #coloca la gárgola en el centro
-        self.rect.center = self.screen_rect.center
+        self.rect.midright = self.screen_rect.midright
 
         #Guarda un valor decimal para la posición horizontal exacta de la gárgola
         self.x = float(self.rect.x)
