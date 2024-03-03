@@ -22,7 +22,7 @@ class Tirador():
         while True:
             self._update_screen()
             self.gargola.update()
-            self.clock.tick(600)
+            self.clock.tick(60)
             self._check_events()
             self._update_bullets()
 
