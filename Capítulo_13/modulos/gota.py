@@ -1,9 +1,11 @@
 import pygame
 import sys
+from pygame.sprite import Sprite
 
-class Gota():
+class Gota(Sprite):
 
     def __init__ (self, lluvia):
+        super().__init__()
         self.screen = lluvia.screen
         self.screen_rect = lluvia.screen.get_rect()
         self.velocidad = 3.0
