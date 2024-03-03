@@ -24,7 +24,7 @@ class Tirador():
             self.gargola.update()
             self.clock.tick(600)
             self._check_events()
-            self.bullets.update()
+            self._update_bullets()
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -61,7 +61,7 @@ class Tirador():
     def _update_bullets (self):
         self.bullets.update()
         for bullet in self.bullets.copy():
-            if bullet.rect.left >= self.screen_rect.right:
+            if bullet.rect.left <= self.screen_rect.left:
                 self.bullets.remove(bullet)
 
     def _update_screen (self):
