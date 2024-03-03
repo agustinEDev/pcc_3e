@@ -31,7 +31,7 @@ class Lluvia:
     def _update_gota (self):
         #Actualiza la posición de las gotas en la pantalla.
             self.gota.update()
-            if self.gota.rect.top >= self.screen_rect.bottom:
+            if self.gota.rect.top >= self.screen_rect.bottom + self.gota.rect.height:
                 self.gota.reset()
 
     def _update_screen (self):
