@@ -45,15 +45,13 @@ class Lluvia:
 
     def _create_gotas (self):
         #Llena la pantalla con gotas.
-        switch = randint(0, 1)
         gota = Gota(self)
         gota_width, gota_height = gota.rect.size
         
         current_x, current_y = 0, self.screen_rect.y - gota_height
         while current_y <= self.screen_rect.height:
             while current_x <= self.screen_rect.width:
-                if switch == 0:
-                    self._create_gota(current_x, current_y)
+                self._create_gota(current_x, current_y)
                 current_x += gota_width
 
             #Al acabar la fila, se mueve al inicio de la siguiente.
