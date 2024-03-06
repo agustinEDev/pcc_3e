@@ -4,6 +4,7 @@ from pygame.sprite import Sprite
 from modulos.gargola import Gargola
 from modulos.bullet import Bullet
 from modulos.settings import Settings
+from modulos.pixel import Pixel
 
 class Tirador():
 
@@ -17,14 +18,17 @@ class Tirador():
         self.settings = Settings()
         self.gargola = Gargola(self)
         self.bullets = pygame.sprite.Group()
+        self.pixels = pygame.sprite.Group()
+        self._create_fleet()
 
     def run_tirador(self):
         while True:
             self._update_screen()
             self.gargola.update()
-            self.clock.tick(600)
+            self.clock.tick(60)
             self._check_events()
-            self.bullets.update()
+            self._update_bullets()
+            self._update_pixels()  
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -61,14 +65,46 @@ class Tirador():
     def _update_bullets (self):
         self.bullets.update()
         for bullet in self.bullets.copy():
-            if bullet.rect.left >= self.screen_rect.right:
+            if bullet.rect.left <= self.screen_rect.left:
                 self.bullets.remove(bullet)
+
+    def _create_pixel (self, x, y):
+        new_pixel = Pixel(self)
+        new_pixel.x = x
+        new_pixel.y = y
+        new_pixel.rect.x = x
+        new_pixel.rect.y = y
+        self.pixels.add(new_pixel)
+
+    def _update_pixels (self):
+        self.pixels.update()
+        for pixel in self.pixels.copy():
+            if pixel.rect.right >= self.screen_rect.right:
+                self.pixels.remove(pixel)
+        self._check_bullet_pixel_collisions()
+
+    def _check_bullet_pixel_collisions (self):
+        collisions = pygame.sprite.groupcollide(self.bullets, self.pixels, True, True)
+
+    def _create_fleet (self):
+        pixel = Pixel(self)
+        pixel_width, pixel_height = pixel.rect.size
+        
+        current_x, current_y = pixel_width * 0.5, pixel_height
+        while current_x < self.screen_rect.right - 5 * pixel_width:
+            while current_y < self.screen_rect.bottom - pixel_height:
+                self._create_pixel(current_x, current_y)
+                current_y += pixel_width
+
+            current_y = pixel_height
+            current_x += 2 * pixel_width
 
     def _update_screen (self):
         self.screen.fill(self.bg_color)
         self.gargola.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.pixels.draw(self.screen)
         pygame.display.flip()
         self.clock.tick(60)
 
