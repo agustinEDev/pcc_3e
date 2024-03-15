@@ -3,7 +3,7 @@ import csv
 
 import plotly.express as px
 
-path = Path('weather_data/world_fires_7_day.csv')
+path = Path('weather_data/world_fires_1_day.csv')
 contents = path.read_text()
 all_fires_data = csv.reader(contents.splitlines())
 
@@ -20,7 +20,11 @@ for row in all_fires_data:
 fig = px.scatter_geo (lat = lats, 
                       lon = lons, 
                       size = brightness, 
+                      color = brightness,
                       title = 'Global Fires',
+                      color_continuous_scale = 'Viridis',
+                      labels = {'color':'Brightness'},
+                      projection = 'natural earth',
                       )
 
 fig.show()
