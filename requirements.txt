@@ -3,3 +3,7 @@ matplotlib
 plotly
 datetime
 path
+pygame
+pathlib
+requests
+operator
