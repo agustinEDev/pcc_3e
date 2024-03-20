@@ -16,7 +16,7 @@ for submission_id in submission_ids:
     # Crea una llamada a la API separada para cada submision.
     url = f"https://hacker-news.firebaseio.com/v0/item/{submission_id}.json"
     r = requests.get(url)
-    print(f"id: {submission_id}\tStatus code: {r.status_code}")
+    #print(f"id: {submission_id}\tStatus code: {r.status_code}")
     response_dict = r.json()
     submission_dict = {
         "title": response_dict["title"],
@@ -24,6 +24,7 @@ for submission_id in submission_ids:
         "comments": response_dict.get("descendants", 0)
     }
     submission_dicts.append(submission_dict)
+    print(f"id: {submission_id}\tStatus code: {r.status_code}\tTítulo: {submission_dict['title']}")
 #Ordenamos los 500 diccionarios para que los temas más comentados estén en la parte superior.
 submission_dicts = sorted(
     submission_dicts, key=lambda x: x["comments"], reverse=True)
