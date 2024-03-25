@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Mis aplicaciones
     'blogs',
+    'accounts',
 
     # Aplicaciones de Django
     'django.contrib.admin',
@@ -125,3 +126,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Mis ajustes.
+LOGIN_REDIRECT_URL = 'blogs:index'
+LOGOUT_REDIRECT_URL = 'blogs:index'
