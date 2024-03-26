@@ -17,4 +17,6 @@ urlpatterns = [
     path('new_entry/<int:blog_id>/', views.new_entry, name = 'new_entry'),
     # Página para editar una entrada
     path('edit_entry/<int:entry_id>/', views.edit_entry, name = 'edit_entry'),
+    # Página de error cuando intentan editar o crear en un blog que no es suyo
+    path('error/', views.error, name = 'error'),
 ]
