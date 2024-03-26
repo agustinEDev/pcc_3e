@@ -1,0 +1,20 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+
+    <p>Bienvenido a Blogs!</p>
+
+    <p>Publicaciones:</p>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href = "{% url 'blogs:blog' entry.blog.id %}">{{ entry.blog.title }}</a>
+                <p>{{ entry.title }}</p>
+                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                <p>{{ entry.text|linebreaks }}</p>
+            </li>
+        {% empty %}
+            <li>No se han agregado publicaciones aún.</li>
+        {% endfor %}
+
+{% endblock content %}
