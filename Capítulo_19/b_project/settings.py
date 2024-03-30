@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'blogs',
     'accounts',
 
+    # Aplicaciones de terceros
+    'django_bootstrap5',
+
     # Aplicaciones de Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,4 +134,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'blogs:index'
 LOGOUT_REDIRECT_URL = 'blogs:index'
 LOGIN_URL = 'accounts:login'
-ERROR_REDIRECT_URL = 'blogs:error'
