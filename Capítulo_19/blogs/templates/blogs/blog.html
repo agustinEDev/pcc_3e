@@ -1,23 +1,31 @@
 {% extends 'blogs/base.html' %}
 
-{% block content %}
+{% block page_header %}
 
-    <p>Blog: {{ blog.title }}</p>
-    <p>Entries: </p>
-    <a href="{% url 'blogs:new_entry' blog.id %}">Add a new entry</a>
-    <ul>
-        {% for entry in entries %}
-            <li>
-                <p>{{ entry.title }}</p>
-                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-                <p>{{ entry.text|linebreaks }}</p>
-                <p>
-                    <a href="{% url 'blogs:edit_entry' entry.id %}">Edit entry</a>
-                </p>
-            </li>
-        {% empty %}
-            <li>No entries have been added yet.</li>
-        {% endfor %}
-    </ul>
+    <h1>{{ blog.title }}</h1>
+
+{% endblock page_header %}
+
+{% block content %}
+    <p>
+        <a href="{% url 'blogs:new_entry' blog.id %}">
+            Add a new entry</a>
+    </p>
+
+    {% for entry in entries %}
+        <div class="card mb-3">
+            <!-- Card header with timestamp and edit link -->
+            <h4 class = "card-header">
+                {{ entry.date_added|date:'M d, Y H:i' }}
+                <small><a href="{% url 'blogs:edit_entry' entry.id %}">
+                        Edit entry</a></small>
+            </h4>
+            <!-- Card body with entry text -->
+            <div class="card-body">
+                <p class="card-text">{{ entry.text|linebreaks }}</p></div>
+        </div>
+    {% empty %}
+        <li>No entries have been added yet.</li>
+    {% endfor %}
 
 {% endblock content %}

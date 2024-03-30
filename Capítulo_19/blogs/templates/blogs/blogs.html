@@ -1,20 +1,40 @@
 {% extends 'blogs/base.html' %}
 
-{% block content %}
+{% block page_header %}
 
-    <p>Blogs:</p>
-    <ul>
+    <h2> Blogs </h2>
+
+{% endblock page_header %}
+
+{% block content %}
+    <ul class="list-group border-bottom pb-2 mb-4">
         {% for blog in blogs %}
-            <li>
-                <a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</a>
-                <p>{{ blog.date_added|date:'M d, Y H:i' }}</p>
-                <p>{{ blog.description|linebreaks }}</p>
-            </li>
+            <div class="card mb-3">
+                <!-- Card header with timestamp and edit link -->
+                <h7 class = "card-header">
+                    <a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</a>
+                    <p>{{ blog.date_added|date:'M d, Y H:i' }}</p>
+                    <p>{{ blog.description|linebreaks }}</p>
+                </h7>
+            </div>
         {% empty %}
-            <li>No blogs have been added yet.</li>
+            <li class="list-group-item border-0">No blogs have been added yet.</li>
         {% endfor %}
     </ul>
 
     <a href="{% url 'blogs:new_blog' %}">Add a new blog</a>
 
 {% endblock content %}
+
+
+
+<div class="card mb-3">
+    <!-- Card header with timestamp and edit link -->
+    <h4 class = "card-header">
+        {{ entry.blog.title }} - 
+        {{ entry.date_added|date:'M d, Y H:i' }}
+    </h4>
+    <!-- Card body with entry text -->
+    <div class="card-body">
+        <p class="card-text">{{ entry.text|linebreaks }}</p></div>
+</div>
