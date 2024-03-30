@@ -25,16 +25,3 @@
     <a href="{% url 'blogs:new_blog' %}">Add a new blog</a>
 
 {% endblock content %}
-
-
-
-<div class="card mb-3">
-    <!-- Card header with timestamp and edit link -->
-    <h4 class = "card-header">
-        {{ entry.blog.title }} - 
-        {{ entry.date_added|date:'M d, Y H:i' }}
-    </h4>
-    <!-- Card body with entry text -->
-    <div class="card-body">
-        <p class="card-text">{{ entry.text|linebreaks }}</p></div>
-</div>
