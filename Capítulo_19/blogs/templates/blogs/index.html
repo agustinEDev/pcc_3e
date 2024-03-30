@@ -7,15 +7,15 @@
 {% block content %}
 <div class="p-3 mb-4 bg-light border rounded-3">
     <div class="container-fluid py-4">
-        <p><h3>Last entries: </h3></p>
+        <h4>Last entries: </h4>
         <ul>
             {% for entry in entries %}
             <div class="card mb-3">
                 <!-- Card header with timestamp and edit link -->
-                <h4 class = "card-header">
+                <h7 class = "card-header">
                     {{ entry.blog.title }} - 
                     {{ entry.date_added|date:'M d, Y H:i' }}
-                </h4>
+                </h7>
                 <!-- Card body with entry text -->
                 <div class="card-body">
                     <p class="card-text">{{ entry.text|linebreaks }}</p></div>
