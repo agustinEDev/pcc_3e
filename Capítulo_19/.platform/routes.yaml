@@ -1,0 +1,9 @@
+# Cada ruta describe la manera en la que Platform.sh procesará una URL entrante.
+
+"https://{default}/":
+  type: upstream
+  upstream: "b_project:http"
+
+"https://www.{default}/":
+  type: redirect
+  to: "https://{default}/"
