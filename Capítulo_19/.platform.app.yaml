@@ -1,41 +1,41 @@
 name: "b_project"
-type: "python: 3.12"
+type: "python:3.10"
 
-relationships: 
-  database: "db:postgresql"
+relationships:
+    database: "db:postgresql"
 
-# Configuración de la app cuando se expone a la web
+# The configuration of the app when it's exposed to the web.
 web:
-  upstream:
-    socket_family: "unix"
-  commands:
-    start: "guicorn -w 4 -b unix:$SOCKET b_project.wsgi:application"
-  locations:
-    "/":
-      passthrough: true
-    "/static": Styling and deploying an App
-      root: "static"
-      expires: 1h
-      allow: true
+    upstream:
+        socket_family: unix
+    commands:
+        start: "gunicorn -w 4 -b unix:$SOCKET b_project.wsgi:application"
+    locations:
+        "/":
+            passthru: true
+        "/static":
+            root: "static"
+            expires: 1h
+            allow: true
 
-# Tamaño del disco pwrsistente de la aplicación (en MB).
+# The size of the persistent disk of the application (in MB).
 disk: 512
 
-# Establece un modelo local de lectura y escritura para los registros.
+# Set a local read/write mount for logs.
 mounts:
-  "logs":
-    source: "local"
-    source_path: "logs"
+    "logs":
+        source: local
+        source_path: logs
 
-# Hooks ejecutados en varios puntos del ciclo de vida de la aplicación.
+# The hooks executed at various points in the lifecycle of the application.
 hooks:
-  build: |
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    pip install -r requirements_remote.txt
-
-    mkdir logs
-    python manage.py collectstatic
-    rm -rf logs
-  deploy: |
-    python manage.py migrate
+    build: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements_remote.txt
+        
+        mkdir logs
+        python manage.py collectstatic
+        rm -rf logs
+    deploy: |
+        python manage.py migrate
